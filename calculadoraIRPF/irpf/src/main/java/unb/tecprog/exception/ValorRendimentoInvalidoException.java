@@ -1,9 +1,14 @@
 package unb.tecprog.exception;
 
 public class ValorRendimentoInvalidoException extends RuntimeException {
-    public static final String mensagem = "O rendimento apresentado é inválido";
+    private final String mensagem;
 
     public ValorRendimentoInvalidoException(String mensagem) {
+
         super(mensagem);
+        this.mensagem = mensagem;
+    }
+    public String getMensagem() {
+        return mensagem;
     }
 }

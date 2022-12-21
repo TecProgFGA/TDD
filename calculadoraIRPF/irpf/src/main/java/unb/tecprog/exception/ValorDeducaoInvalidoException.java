@@ -1,8 +1,12 @@
 package unb.tecprog.exception;
 
 public class ValorDeducaoInvalidoException extends RuntimeException{
-    public static final String mensagem = "Dedução inválida";
+    private final String mensagem;
     public ValorDeducaoInvalidoException(String mensagem) {
         super(mensagem);
+        this.mensagem = mensagem;
+    }
+    public String getMensagem() {
+        return mensagem;
     }
 }

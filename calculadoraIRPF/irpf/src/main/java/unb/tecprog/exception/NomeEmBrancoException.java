@@ -1,9 +1,15 @@
 package unb.tecprog.exception;
 
 public class NomeEmBrancoException  extends RuntimeException{
-    public static final String mensagem = "O campo de nome está em branco";
+    private final String mensagem;
 
     public NomeEmBrancoException(String mensagem) {
+
         super(mensagem);
+        this.mensagem = mensagem;
+    }
+
+    public String getMensagem() {
+        return mensagem;
     }
 }
