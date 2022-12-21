@@ -3,6 +3,7 @@ package unb.tecprog;
 
 import org.junit.Before;
 import org.junit.Test;
+import unb.tecprog.exception.ValorRendimentoInvalidoException;
 
 import static org.junit.Assert.assertEquals;
 
@@ -56,6 +57,16 @@ public class CadastroRendimentosTest
         simuladorIRPF.cadastrarRendimento("Aluguel", 5000.0);
         simuladorIRPF.cadastrarRendimento("Rendimento de dividendos", 3000.0);
         assertEquals(20000.0, simuladorIRPF.getTotalRendimentos(), 0.0);
+    }
+
+    @Test
+    public void T04_InvalidaCadastraRendimentoEmBranco(){
+        try {
+            simuladorIRPF.cadastrarRendimento("Nao foi possivel cadastrar! descricao do rendimento esta vazia ",  1000.0 );
+        } catch (ValorRendimentoInvalidoException exec){
+            assertEquals("O rendimento apresentado é inválido", exec.getMessage());
+        }
+
     }
 
 }

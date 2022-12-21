@@ -1,6 +1,7 @@
 package unb.tecprog;
 import org.junit.Before;
 import org.junit.Test;
+import unb.tecprog.exception.NomeEmBrancoException;
 
 import static org.junit.Assert.assertEquals;
 
@@ -53,4 +54,13 @@ public class CadastroPensaoTest{
 
     }
 
+    @Test
+    public void T05_InvalidaNomeEmBranco(){
+        try {
+            simuladorIRPF.cadastrarPensaoAlimenticia("", 0.0);
+        } catch ( NomeEmBrancoException exec){
+            assertEquals("Nao foi possivel cadastrar! descricao deducao esta vazia", exec.getMessage());
+        }
+
+    }
 }
