@@ -14,10 +14,20 @@ public class CadastroPrevidenciaOficialTest {
     }
 
     @Test
-    public void T01_CadastraDependente() {
+    public void T01_CadastraPrevidenciaOficial() {
         simuladorIRPF.cadastrarPrevidenciaOficial("INSS 1", 2100.0);
-        simuladorIRPF.cadastrarPrevidenciaOficial("INSS 2", 1700.0);
-        //assertEquals(3800.0, simuladorIRPF.getTotalDeducaoPrevidenciaOficial(),0.0);
+        assertEquals(2100.0, simuladorIRPF.getPrevidenciaOficial(),0.0);
+    }
+    @Test
+    public void T02_CadastraPrevidenciaOficial() {
+        simuladorIRPF.cadastrarPrevidenciaOficial("INSS 1", 3000.0);
+        assertEquals(3000.0, simuladorIRPF.getPrevidenciaOficial(),0.0);
+    }
+
+    @Test
+    public void T03_CadastraPrevidenciaOficial() {
+        simuladorIRPF.cadastrarPrevidenciaOficial("INSS 1", 0.0);
+        assertEquals(0.0, simuladorIRPF.getPrevidenciaOficial(),0.0);
     }
 
 }

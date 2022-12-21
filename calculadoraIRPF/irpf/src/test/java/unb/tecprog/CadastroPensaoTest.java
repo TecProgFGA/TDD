@@ -16,14 +16,28 @@ public class CadastroPensaoTest{
     @Test
     public void T01_CadastraPensaoAlimenticia() {
         simuladorIRPF.cadastrarPensaoAlimenticia("Pensao alimenticia", 1500.0);
-       // assertEquals(1500.0, simuladorIRPF.getPensaoAlimenticia(), 0.000);
+       assertEquals(1500.0, simuladorIRPF.getPensaoAlimenticia(), 0.0);
+    }
+
+    @Test
+    public void T01_CadastraPensaoAlimenticiaDuplicado() {
+        simuladorIRPF.cadastrarPensaoAlimenticia("Pensao alimenticia", 2000.0);
+        assertEquals(2000.0, simuladorIRPF.getPensaoAlimenticia(), 0.0);
     }
 
     @Test
     public void T02_CadastraPensaoAlimenticia() {
         simuladorIRPF.cadastrarPensaoAlimenticia("Pensao alimenticia 1", 1500.0);
         simuladorIRPF.cadastrarPensaoAlimenticia("Pensao alimenticia 2", 1700.0);
-        //assertEquals(3200.0, simuladorIRPF.getPensaoAlimenticia(), 0.000);
+        assertEquals(3200.0, simuladorIRPF.getPensaoAlimenticia(), 0.000);
+
+    }
+
+    @Test
+    public void T02_CadastraPensaoAlimenticiaDuplicado() {
+        simuladorIRPF.cadastrarPensaoAlimenticia("Pensao alimenticia 1", 1000.0);
+        simuladorIRPF.cadastrarPensaoAlimenticia("Pensao alimenticia 2", 1000.0);
+        assertEquals(2000.0, simuladorIRPF.getPensaoAlimenticia(), 0.000);
 
     }
 
