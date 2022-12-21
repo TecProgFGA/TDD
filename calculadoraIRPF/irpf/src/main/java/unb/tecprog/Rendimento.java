@@ -1,12 +1,22 @@
 package unb.tecprog;
 
+import unb.tecprog.exception.DescricaoEmBrancoException;
+import unb.tecprog.exception.ValorDeducaoInvalidoException;
+
 public class Rendimento {
-    private String descricacao;
+    private String descricao;
     private Double valor;
 
 
-    public Rendimento(String descricacao, Double valor) {
-        this.descricacao = descricacao;
+    public Rendimento(String descricao, Double valor) {
+        if(descricao == null || descricao.isEmpty()) {
+            throw new DescricaoEmBrancoException("Nao foi possivel cadastrar! descricao do rendimento esta vazia");
+        }
+        this.descricao = this.descricao;
+
+        if( valor == null || valor < 0.0) {
+            throw new ValorDeducaoInvalidoException("Valor do rendimento nao pode ser menor de 0.");
+        }
         this.valor = valor;
     }
     public Double getValor() {
@@ -18,12 +28,12 @@ public class Rendimento {
     }
 
 
-    public String getDescricacao() {
-        return descricacao;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDescricacao(String descricacao) {
-        this.descricacao = descricacao;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
 }

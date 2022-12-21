@@ -1,17 +1,22 @@
 package unb.tecprog;
 
-public class Dependente extends Deducao{
-    private Integer quantidade;
-    private final Double VALOR_POR_DEPENDENTE = 189.59;
+import java.util.Date;
 
-    public Dependente(String descricao, Integer quantidade) {
-        super(descricao);
-        this.quantidade = quantidade;
+public class Dependente extends Deducao{
+    private Date dataNascimento;
+
+    public Dependente(String descricao, Date dataNascimento) {
+        super(descricao, 189.59);
+        this.dataNascimento = dataNascimento;
+
     }
 
-    @Override
-    public Double getValor() {
-        return quantidade * VALOR_POR_DEPENDENTE;
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
 }

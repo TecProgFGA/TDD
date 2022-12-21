@@ -1,49 +1,74 @@
 package unb.tecprog;
 
+import unb.tecprog.exception.ValorBaseInvalidoException;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class SimuladorIRPF {
     private List<Rendimento> rendimentos;
 
     private List<Deducao> deducoes;
+    private Double totalRendimento;
+    private Double totalDeducao;
 
     public SimuladorIRPF() {
         this.rendimentos = new ArrayList<>();
         this.deducoes = new ArrayList<>();
+        totalDeducao = 0.0;
+        totalRendimento = 0.0;
     }
 
-    public void cadastrarRendimento(Rendimento rendimento) { rendimentos.add(rendimento); }
+    public void cadastrarRendimento(String descricao, Double valor) {
+        Rendimento rendimento = new Rendimento(descricao, valor);
+        rendimentos.add(rendimento);
+        totalRendimento += valor;
+    }
 
-    public void cadastrarDeducao(Deducao deducao) {
+    public void cadastrarDeducao(String descricao, Double valor)
+    {
+        Deducao deducao = new Deducao(descricao,valor);
         deducoes.add(deducao);
+        totalDeducao += valor;
     }
 
-    public Double getTotalRendimentos() {
-        Double soma = 0.0;
-        for (Rendimento rendimento : this.rendimentos) {
-            soma += rendimento.getValor();
-        }
-        return soma;
+    public void cadastrarPrevidenciaOficial(String descricao, Double valor) {
+        PrevidenciaOficial previdenciaOficial = new PrevidenciaOficial(descricao, valor);
+        deducoes.add(previdenciaOficial);
+        totalDeducao += valor;
+    }
+
+    public void cadastrarPensaoAlimenticia(Double valor) {
+        PensaoAlimenticia pensaoAlimenticia = new PensaoAlimenticia(valor);
+        this.deducoes.add(pensaoAlimenticia);
+        totalDeducao += valor;
+    }
+
+    public void cadastrarDependente(String nome, Date dataNascimento) {
+        Dependente dependente = new Dependente(nome, dataNascimento);
+        deducoes.add(dependente);
+        totalDeducao += 189.59;
+    }
+
+    public Double getTotalRendimentos(){
+        return this.totalRendimento;
     }
 
     public Double getTotalDeducoes() {
-        Double soma = 0.0;
-        for (Deducao deducao : this.deducoes) {
-            soma += deducao.getValor();
-        }
-        return soma;
+        return this.totalDeducao;
     }
 
-    public Double getBaseCalculo() throws Exception {
+    public Double getBaseCalculo() {
         Double base = getTotalRendimentos() - getTotalDeducoes();
         if(base < 0.0) {
-            throw new Exception("Erro! Base de calculo nao pode ser negativa.");
+            throw new ValorBaseInvalidoException("Erro! Base de calculo nao pode ser negativa.");
         }
         return  base;
     }
 
-    public double calculaIRPF() throws Exception {
+    public double calculaIRPF() {
         Double baseCalculo = getBaseCalculo();
         Double impostoFinal = 0.0;
 
@@ -76,4 +101,5 @@ public class SimuladorIRPF {
 
         return impostoFinal;
     }
+
 }
