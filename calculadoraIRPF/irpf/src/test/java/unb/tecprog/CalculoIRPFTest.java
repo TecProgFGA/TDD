@@ -33,7 +33,7 @@ public class CalculoIRPFTest {
     public void T03_CalculoComMultiplasDeducoes() throws Exception {
         simuladorIRPF.cadastrarRendimento("Total", 10000.0);
         simuladorIRPF.cadastrarDependente("Joao Silva Filho", new Date(2010, 12, 30));
-        simuladorIRPF.cadastrarPensaoAlimenticia( 1900.0);
+        simuladorIRPF.cadastrarPensaoAlimenticia( "Joao",1900.0);
         assertEquals(1306.00, simuladorIRPF.calculaIRPF(), 0.01);
     }
 }

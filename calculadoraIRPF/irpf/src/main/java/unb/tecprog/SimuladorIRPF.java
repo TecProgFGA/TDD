@@ -40,7 +40,7 @@ public class SimuladorIRPF {
         totalDeducao += valor;
     }
 
-    public void cadastrarPensaoAlimenticia(Double valor) {
+    public void cadastrarPensaoAlimenticia(String nome, Double valor) {
         PensaoAlimenticia pensaoAlimenticia = new PensaoAlimenticia(valor);
         this.deducoes.add(pensaoAlimenticia);
         totalDeducao += valor;

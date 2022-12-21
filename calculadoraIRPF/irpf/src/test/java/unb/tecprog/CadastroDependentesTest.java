@@ -15,20 +15,21 @@ public class CadastroDependentesTest{
 
     @Test
     public void T01_CadastraDependente() {
-        simuladorIRPF.cadastraDependente("Arthur Talles", 2100.0);
+        //simuladorIRPF.cadastrarDependente("Arthur Talles","05/10/2000");
 
     }
 
     @Test
     public void T02_CadastraDependente() {
-        simuladorIRPF.cadastraDependente("Arthur Talles", 2100.0);
-        simuladorIRPF.cadastraDependente("Eduardo", 2500.0);
+        //simuladorIRPF.cadastrarDependente("Arthur Talles","05/10/2000" );
+        //simuladorIRPF.cadastrarDependente("Eduardo","07/09/1999" );
 
     }
 
     @Test
     public void T03_CadastraDependente() {
-        simuladorIRPF.cadastraDependente("","");
+        //simuladorIRPF.cadastrarDependente("","" );
+    }
 
 
 }
