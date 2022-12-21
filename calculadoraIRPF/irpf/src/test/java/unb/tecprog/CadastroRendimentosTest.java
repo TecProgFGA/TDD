@@ -28,12 +28,12 @@ public class CadastroRendimentosTest
         assertEquals(12000.0, simuladorIRPF.getTotalRendimentos(), 0.0);
     }
 
-//    @Test
-//    public void T03_CadastroTresRendimento() {
-//        simuladorIRPF.cadastrarRendimentos("Salario Total", 12000.0);
-//        simuladorIRPF.cadastrarRendimentos("Aluguel", 2000.0);
-//        simuladorIRPF.cadastrarRendimentos("Rendimento de dividendos", 1000.0);
-//        assertEquals(15000.0, simuladorIRPF.getTotalRendimentos(), 0.0);
-//    }
+   @Test
+   public void T03_CadastroTresRendimento() {
+       simuladorIRPF.cadastrarRendimentos("Salario Total", 12000.0);
+       simuladorIRPF.cadastrarRendimentos("Aluguel", 2000.0);
+       simuladorIRPF.cadastrarRendimentos("Rendimento de dividendos", 1000.0);
+       assertEquals(15000.0, simuladorIRPF.getTotalRendimentos(), 0.0);
+   }
 
 }
