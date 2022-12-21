@@ -1,13 +1,9 @@
 package unb.tecprog.exception;
 
 public class DescricaoEmBrancoException extends RuntimeException{
-    private final String mensagem;
+    public static final String mensagem = "O campo de descrição está em branco";
     public DescricaoEmBrancoException(String mensagem) {
         super(mensagem);
-        this.mensagem = mensagem;
     }
 
-    public String getMensagem() {
-        return mensagem;
-    }
 }
