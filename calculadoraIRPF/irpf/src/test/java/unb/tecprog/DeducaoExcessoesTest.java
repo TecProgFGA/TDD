@@ -5,15 +5,26 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import unb.tecprog.exception.DescricaoEmBrancoException;
 
+import java.util.Date;
+
 public class DeducaoExcessoesTest {
 
     @Rule
     public ExpectedException exceptionRule = ExpectedException.none();
 
     @Test
-    public void T01_DeducaoDescricaoExcessao () {
+    public void T01_DeducaoDescricaoNulaExcessao () {
         exceptionRule.expect(DescricaoEmBrancoException.class);
-        exceptionRule.expectMessage("Ola mundo");
-        throw new DescricaoEmBrancoException("Ola mundo");
+        exceptionRule.expectMessage("Nao foi possivel cadastrar! descricao deducao esta vazia");
+        Deducao deducao = new Deducao(null, 1000.0);
     }
+
+    @Test
+    public void T02_DeducaoDescricaoNulaExcessao () {
+        exceptionRule.expect(DescricaoEmBrancoException.class);
+        exceptionRule.expectMessage("Nao foi possivel cadastrar! descricao deducao esta vazia");
+        PrevidenciaOficial previdenciaOficial = new PrevidenciaOficial(null, 1000.0);
+    }
+
+
 }
