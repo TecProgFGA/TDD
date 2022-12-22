@@ -59,6 +59,13 @@ public class DeducaoExcessoesTest {
     public void T07_DeducaoValorExcessao () {
         exceptionRule.expect(ValorDeducaoInvalidoException.class);
         exceptionRule.expectMessage("Valor da deducao nao pode ser menor de 0.");
-        throw  new ValorDeducaoInvalidoException("ola");
+        Deducao deducao = new Deducao("Previdencia privada", -1.0);
+    }
+
+    @Test
+    public void T08_DeducaoValorExcessao () {
+        exceptionRule.expect(ValorDeducaoInvalidoException.class);
+        exceptionRule.expectMessage("Valor da deducao nao pode ser menor de 0.");
+        Deducao deducao = new Deducao("Previdencia privada", -100.0);
     }
 }
