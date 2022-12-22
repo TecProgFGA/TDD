@@ -59,14 +59,4 @@ public class CadastroRendimentosTest
         assertEquals(20000.0, simuladorIRPF.getTotalRendimentos(), 0.0);
     }
 
-    @Test
-    public void T04_InvalidaCadastraRendimentoEmBranco(){
-        try {
-            simuladorIRPF.cadastrarRendimento("Nao foi possivel cadastrar! descricao do rendimento esta vazia ",  1000.0 );
-        } catch (ValorRendimentoInvalidoException exec){
-            assertEquals("O rendimento apresentado é inválido", exec.getMessage());
-        }
-
-    }
-
 }
