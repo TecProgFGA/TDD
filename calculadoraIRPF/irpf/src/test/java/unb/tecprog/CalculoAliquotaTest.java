@@ -18,14 +18,14 @@ public class CalculoAliquotaTest {
     }
 
     @Test
-    public void T01_CalcularAliquotaFalsificação() {
+    public void T01_CalcularAliquota() {
         simuladorIRPF.cadastrarRendimento("Salario Total", 12000.0);
         double aliquotaEfetiva = simuladorIRPF.calcularAliquotaEfetiva();
         assertEquals(20.25, aliquotaEfetiva, 0.01);
     }
 
     @Test
-    public void T02_CalcularAliquotaFalsificação() {
+    public void T02_CalcularAliquota() {
         simuladorIRPF.cadastrarRendimento("Salario Total", 7000.0);
         double aliquotaEfetiva = simuladorIRPF.calcularAliquotaEfetiva();
         assertEquals(15.07, aliquotaEfetiva, 0.01);
