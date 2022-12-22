@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import java.util.Date;
 import unb.tecprog.exception.DescricaoEmBrancoException;
-import unb.tecprog.exception.DescricaoEmBrancoException;
 
 import static org.junit.Assert.assertEquals;
 
@@ -44,15 +43,15 @@ public class CadastroDeducaoTest{
     }
 
 
-////    @Test
-////    public void T05_InvalidaCadastraDeducaoValorNegativo(){
-////        try {
-////            simuladorIRPF.cadastrarDeducao(" ", 1500.0);
-////        } catch (DescricaoEmBrancoException exec){
-////            assertEquals("O campo de descrição está em branco", exec.getMessage());
-////        }
-//
-//    }
+    @Test
+    public void T05_InvalidaCadastraDeducaoValorNegativo(){
+        try {
+            simuladorIRPF.cadastrarDeducao(" ", 1500.0);
+        } catch (DescricaoEmBrancoException exec){
+            assertEquals("O campo de descrição está em branco", exec.getMessage());
+        }
+
+    }
 
 
 
