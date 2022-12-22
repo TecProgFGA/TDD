@@ -79,6 +79,7 @@ public class SimuladorIRPF {
         double aliquotaEfetiva = (float)(Math.floor(imposto/this.getTotalRendimentos() * 10000) / 100.0);
         return aliquotaEfetiva;
     }
+
     public Double getBaseCalculo() {
         Double base = getTotalRendimentos() - getTotalDeducoes();
         if(base < 0.0) {
