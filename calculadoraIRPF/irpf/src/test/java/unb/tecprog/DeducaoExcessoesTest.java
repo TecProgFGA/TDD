@@ -4,6 +4,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import unb.tecprog.exception.DescricaoEmBrancoException;
+import unb.tecprog.exception.ValorDeducaoInvalidoException;
 
 import java.util.Date;
 
@@ -31,5 +32,33 @@ public class DeducaoExcessoesTest {
         exceptionRule.expect(DescricaoEmBrancoException.class);
         exceptionRule.expectMessage("Nao foi possivel cadastrar! descricao deducao esta vazia");
         Dependente dependente = new Dependente(null, new Date(2010, 10, 10));
+    }
+
+    @Test
+    public void T04_DeducaoDescricaoEmBrancoExcessao () {
+        exceptionRule.expect(DescricaoEmBrancoException.class);
+        exceptionRule.expectMessage("Nao foi possivel cadastrar! descricao deducao esta vazia");
+        Deducao deducao = new Deducao("", 1000.0);
+    }
+
+    @Test
+    public void T05_DeducaoDescricaoEmBrancoExcessao () {
+        exceptionRule.expect(DescricaoEmBrancoException.class);
+        exceptionRule.expectMessage("Nao foi possivel cadastrar! descricao deducao esta vazia");
+        PrevidenciaOficial previdenciaOficial = new PrevidenciaOficial("", 1000.0);
+    }
+
+    @Test
+    public void T06_DeducaoDescricaoEmBrancoExcessao () {
+        exceptionRule.expect(DescricaoEmBrancoException.class);
+        exceptionRule.expectMessage("Nao foi possivel cadastrar! descricao deducao esta vazia");
+        Dependente dependente = new Dependente("", new Date(2010, 10, 10));
+    }
+
+    @Test
+    public void T07_DeducaoValorExcessao () {
+        exceptionRule.expect(ValorDeducaoInvalidoException.class);
+        exceptionRule.expectMessage("Valor da deducao nao pode ser menor de 0.");
+        throw  new ValorDeducaoInvalidoException("ola");
     }
 }
