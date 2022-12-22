@@ -1,14 +1,17 @@
-package unb.tecprog;
+package unb.tecprog.exceptions;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import unb.tecprog.Deducao;
+import unb.tecprog.Dependente;
+import unb.tecprog.PrevidenciaOficial;
 import unb.tecprog.exception.DescricaoEmBrancoException;
 import unb.tecprog.exception.ValorDeducaoInvalidoException;
 
 import java.util.Date;
 
-public class DeducaoExcessoesTest {
+public class DeducaoExcecoesTest {
 
     @Rule
     public ExpectedException exceptionRule = ExpectedException.none();
