@@ -41,18 +41,4 @@ public class CadastroDeducaoTest{
     }
 
     }
-
-
-    @Test
-    public void T05_InvalidaCadastraDeducaoValorNegativo(){
-        try {
-            simuladorIRPF.cadastrarDeducao(" ", 1500.0);
-        } catch (DescricaoEmBrancoException exec){
-            assertEquals("O campo de descrição está em branco", exec.getMessage());
-        }
-
-    }
-
-
-
 }
