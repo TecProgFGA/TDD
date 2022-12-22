@@ -1,9 +1,13 @@
-## Trabalho Prático 1 - Test-Driven Development
+
+# Trabalho Prático 1 - Test-Driven Development
+
 UnB - Universidade de Brasilia
 
 FGA - Faculdade do Gama
 
 TPPE - Técnicas de Programação para Plataformas Emergentes
+
+## Participantes
 
 |Matrícula | Aluno |
 | -- | -- |
@@ -26,7 +30,7 @@ apt install openjdk-17-jdk openjdk-17-jre
 apt install maven
 ```
 
-### Para rodar o projeto
+## Para rodar o projeto
 
 ```shell
 # clone o repositório
