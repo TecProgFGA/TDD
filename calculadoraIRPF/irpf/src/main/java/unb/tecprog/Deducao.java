@@ -14,7 +14,7 @@ public class Deducao {
         }
         this.descricao = descricao;
 
-        if( valor == null || valor < 0) {
+        if( valor == null || valor <= 0.0) {
             throw new ValorDeducaoInvalidoException("Valor da deducao nao pode ser menor de 0.");
         }
     }
