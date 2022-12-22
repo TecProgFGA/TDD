@@ -17,41 +17,58 @@ public class RendimentoExcecoesTest {
     @Test
     public void T01_RendimentoDescricaoNulaExcessao () {
         exceptionRule.expect(DescricaoEmBrancoException.class);
-        exceptionRule.expectMessage("Nao foi possivel cadastrar! descricao Rendimento esta vazia");
-        throw new DescricaoEmBrancoException("Ola mundo");
-        //        Rendimento Rendimento = new Rendimento(null, 1000.0);
+        exceptionRule.expectMessage("Nao foi possivel cadastrar! descricao do rendimento esta vazia");
+        Rendimento Rendimento = new Rendimento(null, 1000.0);
+    }
+
+    @Test
+    public void T012_RendimentoDescricaoNulaExcessao () {
+        exceptionRule.expect(DescricaoEmBrancoException.class);
+        exceptionRule.expectMessage("Nao foi possivel cadastrar! descricao do rendimento esta vazia");
+        Rendimento Rendimento = new Rendimento(null, 2000.0);
     }
 
     @Test
     public void T02_RendimentoDescricaoEmBrancoExcessao () {
         exceptionRule.expect(DescricaoEmBrancoException.class);
-        exceptionRule.expectMessage("Nao foi possivel cadastrar! descricao Rendimento esta vazia");
-        throw new DescricaoEmBrancoException("Ola mundo");
+        exceptionRule.expectMessage("Nao foi possivel cadastrar! descricao do rendimento esta vazia");
 
-//        Rendimento Rendimento = new Rendimento("", 1000.0);
+        Rendimento Rendimento = new Rendimento("", 1000.0);
     }
 
     @Test
-    public void T07_RendimentoValorNegativoExcessao () {
-        exceptionRule.expect(ValorRendimentoInvalidoException.class);
-        exceptionRule.expectMessage("Valor da Rendimento nao pode ser menor de 0.");
-        throw new ValorRendimentoInvalidoException("Ola mundo");
-//        Rendimento Rendimento = new Rendimento("Previdencia privada", -1.0);
+    public void T021_RendimentoDescricaoEmBrancoExcessao () {
+        exceptionRule.expect(DescricaoEmBrancoException.class);
+        exceptionRule.expectMessage("Nao foi possivel cadastrar! descricao do rendimento esta vazia");
+
+        Rendimento Rendimento = new Rendimento("", 1200.0);
     }
 
     @Test
-    public void T08_RendimentoValorIgualZeroExcessao () {
+    public void T03_RendimentoValorNegativoExcessao () {
         exceptionRule.expect(ValorRendimentoInvalidoException.class);
-        exceptionRule.expectMessage("Valor da Rendimento nao pode ser menor de 0.");
-        throw new ValorRendimentoInvalidoException("Ola mundo");
-        //        Rendimento Rendimento = new Rendimento("Previdencia privada", 0.0);
+        exceptionRule.expectMessage("Valor do rendimento nao pode ser menor de 0.");
+        Rendimento Rendimento = new Rendimento("Previdencia privada", -1.0);
     }
 
     @Test
-    public void T09_RendimentoValorNuloExcessao () {
+    public void T031_RendimentoValorNegativoExcessao () {
         exceptionRule.expect(ValorRendimentoInvalidoException.class);
-        exceptionRule.expectMessage("Valor da Rendimento nao pode ser menor de 0.");
-        throw new ValorRendimentoInvalidoException("Ola mundo");
-//        Rendimento Rendimento = new Rendimento("Previdencia privada", null);
+        exceptionRule.expectMessage("Valor do rendimento nao pode ser menor de 0.");
+        Rendimento Rendimento = new Rendimento("Previdencia privada", -12.0);
+    }
+
+    @Test
+    public void T04_RendimentoValorIgualZeroExcessao () {
+        exceptionRule.expect(ValorRendimentoInvalidoException.class);
+        exceptionRule.expectMessage("Valor do rendimento nao pode ser menor de 0.");
+        Rendimento Rendimento = new Rendimento("Previdencia privada", 0.0);
+    }
+
+    @Test
+    public void T05_RendimentoValorNuloExcessao () {
+        exceptionRule.expect(ValorRendimentoInvalidoException.class);
+        exceptionRule.expectMessage("Valor do rendimento nao pode ser menor de 0.");
+        Rendimento Rendimento = new Rendimento("Previdencia privada", null);
     }
 }
