@@ -1,7 +1,7 @@
 package unb.tecprog;
 
 import unb.tecprog.exception.DescricaoEmBrancoException;
-import unb.tecprog.exception.ValorDeducaoInvalidoException;
+import unb.tecprog.exception.ValorRendimentoInvalidoException;
 
 public class Rendimento {
     private String descricao;
@@ -14,8 +14,8 @@ public class Rendimento {
         }
         this.descricao = this.descricao;
 
-        if( valor == null || valor < 0.0) {
-            throw new ValorDeducaoInvalidoException("Valor do rendimento nao pode ser menor de 0.");
+        if( valor == null || valor <= 0.0) {
+            throw new ValorRendimentoInvalidoException("Valor do rendimento nao pode ser menor de 0.");
         }
         this.valor = valor;
     }
