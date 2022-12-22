@@ -26,5 +26,10 @@ public class DeducaoExcessoesTest {
         PrevidenciaOficial previdenciaOficial = new PrevidenciaOficial(null, 1000.0);
     }
 
-
+    @Test
+    public void T03_DeducaoDescricaoNulaExcessao () {
+        exceptionRule.expect(DescricaoEmBrancoException.class);
+        exceptionRule.expectMessage("Nao foi possivel cadastrar! descricao deducao esta vazia");
+        Dependente dependente = new Dependente(null, new Date(2010, 10, 10));
+    }
 }
