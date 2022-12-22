@@ -50,17 +50,7 @@ public class CadastroPensaoTest{
 
     @Test
     public void T04_CadastraDeducaoDependente() {
-        simuladorIRPF.cadastrarPensaoAlimenticia("Pensão zero", 0.0);
-
-    }
-
-    @Test
-    public void T05_InvalidaNomeEmBranco(){
-        try {
-            simuladorIRPF.cadastrarPensaoAlimenticia("", 0.0);
-        } catch ( NomeEmBrancoException exec){
-            assertEquals("Nao foi possivel cadastrar! descricao deducao esta vazia", exec.getMessage());
-        }
+        simuladorIRPF.cadastrarPensaoAlimenticia("Pensão zero", 10000.0);
 
     }
 }

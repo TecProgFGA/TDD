@@ -26,8 +26,8 @@ public class CadastroPrevidenciaOficialTest {
 
     @Test
     public void T03_CadastraPrevidenciaOficial() {
-        simuladorIRPF.cadastrarPrevidenciaOficial("INSS 1", 0.0);
-        assertEquals(0.0, simuladorIRPF.getPrevidenciaOficial(),0.0);
+        simuladorIRPF.cadastrarPrevidenciaOficial("INSS 1", 1000.0);
+        assertEquals(1000.0, simuladorIRPF.getPrevidenciaOficial(),0.0);
     }
 
 }
