@@ -36,5 +36,4 @@ public class CalculoIRPFTest {
         simuladorIRPF.cadastrarPensaoAlimenticia( "Joao",1900.0);
         assertEquals(1306.00, simuladorIRPF.calculaIRPF(), 0.01);
     }
-
 }

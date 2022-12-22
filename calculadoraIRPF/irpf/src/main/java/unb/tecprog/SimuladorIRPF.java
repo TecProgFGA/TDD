@@ -74,6 +74,11 @@ public class SimuladorIRPF {
     public double getPensaoAlimenticia() {return this.totalPensao;}
     public double getPrevidenciaOficial() {return this.valorPrevidencia;}
 
+    public double calcularAliquotaEfetiva() {
+        double imposto = calculaIRPF();
+        double aliquotaEfetiva = (float)(Math.floor(imposto/this.getTotalRendimentos() * 10000) / 100.0);
+        return aliquotaEfetiva;
+    }
     public Double getBaseCalculo() {
         Double base = getTotalRendimentos() - getTotalDeducoes();
         if(base < 0.0) {
