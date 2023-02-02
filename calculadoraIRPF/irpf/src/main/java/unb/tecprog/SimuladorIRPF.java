@@ -91,37 +91,10 @@ public class SimuladorIRPF {
 
     public double calculaIRPF() {
         Double baseCalculo = getBaseCalculo();
-        final double[] LIMITES_FAIXAS = {1903.98, 922.67, 924.40, 913.63,4664.68};
+        final double[] LIMITES_FAIXAS =  {1903.98, 922.67, 924.40, 913.63};
         final double[] ALIQUOTAS = {0.075, 0.15, 0.225, 0.275};
-        return baseCalculo(baseCalculo, LIMITES_FAIXAS, ALIQUOTAS);
+        return Imposto.baseCalculo(baseCalculo, LIMITES_FAIXAS, ALIQUOTAS);
     }
-
-    private double baseCalculo(Double baseCalculo, double LIMITE_FAIXAS[], double ALIQUOTAS[] ) {
-        Double impostoFinal = 0.0;
-        double valorFaixa = 0.0;
-
-        if (baseCalculo > LIMITE_FAIXAS[4]) {
-            valorFaixa = baseCalculo - LIMITE_FAIXAS[4];
-            impostoFinal += valorFaixa * ALIQUOTAS[3];
-        }
-
-        if (baseCalculo > LIMITE_FAIXAS[2] + LIMITE_FAIXAS[1] + LIMITE_FAIXAS[0]) {
-            valorFaixa = Math.min(baseCalculo - (LIMITE_FAIXAS[2] + LIMITE_FAIXAS[1] + LIMITE_FAIXAS[0]), LIMITE_FAIXAS[3]);
-            impostoFinal += valorFaixa * ALIQUOTAS[2];
-        }
-
-        if (baseCalculo > LIMITE_FAIXAS[1] + LIMITE_FAIXAS[0]) {
-            valorFaixa = Math.min(baseCalculo - (LIMITE_FAIXAS[1] + LIMITE_FAIXAS[0]), LIMITE_FAIXAS[2]);
-            impostoFinal += valorFaixa * ALIQUOTAS[1];
-        }
-
-        if (baseCalculo > LIMITE_FAIXAS[0]) {
-            valorFaixa = Math.min(baseCalculo - LIMITE_FAIXAS[0], LIMITE_FAIXAS[1]);
-            impostoFinal += valorFaixa * ALIQUOTAS[0];
-        }
-        return impostoFinal;
-    }
-
 
 }
 
