@@ -1,5 +1,6 @@
 package unb.tecprog;
 
+import unb.tecprog.constants.FaixaIRPFEnum;
 import unb.tecprog.exception.ValorBaseInvalidoException;
 
 import java.time.LocalDate;
@@ -90,37 +91,37 @@ public class SimuladorIRPF {
 
     public double calculaIRPF() {
         Double baseCalculo = getBaseCalculo();
+        final double[] LIMITES_FAIXAS = {1903.98, 922.67, 924.40, 913.63,4664.68};
+        final double[] ALIQUOTAS = {0.075, 0.15, 0.225, 0.275};
+        return baseCalculo(baseCalculo, LIMITES_FAIXAS, ALIQUOTAS);
+    }
+
+    private double baseCalculo(Double baseCalculo, double LIMITE_FAIXAS[], double ALIQUOTAS[] ) {
         Double impostoFinal = 0.0;
+        double valorFaixa = 0.0;
 
-        Double LIMITE_FAIXA1 = 1903.98;
-        Double LIMITE_FAIXA2 = 922.67;
-        Double LIMITE_FAIXA3 = 924.40;
-        Double LIMITE_FAIXA4 = 913.63;
-        Double LIMITE_FAIXA5 = LIMITE_FAIXA4 + LIMITE_FAIXA3 + LIMITE_FAIXA2 + LIMITE_FAIXA1;
-        Double valorFaixa = 0.0;
-
-        if (baseCalculo > LIMITE_FAIXA5) {
-            valorFaixa = baseCalculo - LIMITE_FAIXA5;
-            impostoFinal += valorFaixa * 0.275;
+        if (baseCalculo > LIMITE_FAIXAS[4]) {
+            valorFaixa = baseCalculo - LIMITE_FAIXAS[4];
+            impostoFinal += valorFaixa * ALIQUOTAS[3];
         }
 
-        if (baseCalculo > LIMITE_FAIXA3 + LIMITE_FAIXA2 + LIMITE_FAIXA1) {
-            valorFaixa = Math.min(baseCalculo - (LIMITE_FAIXA3 + LIMITE_FAIXA2 + LIMITE_FAIXA1), LIMITE_FAIXA4);
-            impostoFinal += valorFaixa * 0.225;
+        if (baseCalculo > LIMITE_FAIXAS[2] + LIMITE_FAIXAS[1] + LIMITE_FAIXAS[0]) {
+            valorFaixa = Math.min(baseCalculo - (LIMITE_FAIXAS[2] + LIMITE_FAIXAS[1] + LIMITE_FAIXAS[0]), LIMITE_FAIXAS[3]);
+            impostoFinal += valorFaixa * ALIQUOTAS[2];
         }
 
-        if (baseCalculo > LIMITE_FAIXA2 + LIMITE_FAIXA1) {
-            valorFaixa = Math.min(baseCalculo - (LIMITE_FAIXA2 + LIMITE_FAIXA1), LIMITE_FAIXA3);
-            impostoFinal += valorFaixa * 0.15;
+        if (baseCalculo > LIMITE_FAIXAS[1] + LIMITE_FAIXAS[0]) {
+            valorFaixa = Math.min(baseCalculo - (LIMITE_FAIXAS[1] + LIMITE_FAIXAS[0]), LIMITE_FAIXAS[2]);
+            impostoFinal += valorFaixa * ALIQUOTAS[1];
         }
 
-        if (baseCalculo > LIMITE_FAIXA1) {
-            valorFaixa = Math.min(baseCalculo - LIMITE_FAIXA1, LIMITE_FAIXA2);
-            impostoFinal += valorFaixa * 0.075;
+        if (baseCalculo > LIMITE_FAIXAS[0]) {
+            valorFaixa = Math.min(baseCalculo - LIMITE_FAIXAS[0], LIMITE_FAIXAS[1]);
+            impostoFinal += valorFaixa * ALIQUOTAS[0];
         }
-
         return impostoFinal;
     }
 
 
 }
+
