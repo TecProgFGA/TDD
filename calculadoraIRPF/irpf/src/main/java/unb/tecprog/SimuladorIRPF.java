@@ -91,9 +91,7 @@ public class SimuladorIRPF {
 
     public double calculaIRPF() {
         Double baseCalculo = getBaseCalculo();
-        final double[] LIMITES_FAIXAS =  {1903.98, 922.67, 924.40, 913.63};
-        final double[] ALIQUOTAS = {0.075, 0.15, 0.225, 0.275};
-        return Imposto.baseCalculo(baseCalculo, LIMITES_FAIXAS, ALIQUOTAS);
+        return Imposto.baseCalculo(baseCalculo);
     }
 
 }

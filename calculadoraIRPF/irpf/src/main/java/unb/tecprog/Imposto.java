@@ -1,14 +1,15 @@
 package unb.tecprog;
 
+import unb.tecprog.constants.FaixaIRPFEnum;
+
 public class Imposto {
-    public static double baseCalculo(Double baseCalculo, double LIMITE_FAIXAS[], double ALIQUOTAS[] ) {
+    public static double baseCalculo(Double baseCalculo) {
         Double impostoFinal = 0.0;
         Double valorFaixa = 0.0;
-
-        for (int i = 0; i < LIMITE_FAIXAS.length; i++) {
-            if (baseCalculo > LIMITE_FAIXAS[i]) {
-                valorFaixa = Math.min(baseCalculo - LIMITE_FAIXAS[i], LIMITE_FAIXAS[i]);
-                impostoFinal += valorFaixa * ALIQUOTAS[i];
+        for (FaixaIRPFEnum faixa : FaixaIRPFEnum.values()) {
+            if (baseCalculo > faixa.getLimite()) {
+                valorFaixa = Math.min(baseCalculo - faixa.getLimite(), faixa.getLimite());
+                impostoFinal += valorFaixa * faixa.getAliquota();
             }
         }
         return impostoFinal;
