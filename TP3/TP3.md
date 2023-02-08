@@ -70,3 +70,21 @@ Quando se trata de software, ter um código simples significa que ele é acessí
 - Extrair método: quando a mesma expressão encontra-se em dois métodos na mesma classe. 
 
 - Renomear variável: Operação que transforma o nome da variável, simplificar e fácil de entender.
+
+## Idiomático
+
+### Descrição 
+Os idiomas estão intimamente relacionados à clareza e à coesão do seu código. Isso porque a leitura do código deve ser como ler uma história, você deve entender as convenções de nomenclatura e expressões idiomáticas. Alguns idiomas têm convenções de nomenclatura comuns. Seguir esses métodos de design permite que outros programadores entendam imediatamente a estrutura do código, reduzindo a curva de aprendizado e os erros.
+
+### Relação com mau cheiro
+
+Ao contrário de outros recursos, o idiomático não tem uma relação forte com o mau cheiro que Fowler apresentou, mas não fazer o código idiomático pode levar a pontos de refatoração. Por exemplo:
+-  Código duplicado: Onde o código pode pode aparecer várias vezes de maneiras diferentes no projeto.
+-  Métodos longos: No qual dependendo da diferença de linguagem são difíceis de entender.
+
+### Operação de refatoração
+
+Nesses casos, pode-se usar as operações de refatoração:
+- extrair objeto 
+- substituir método por método-objeto 
+- Entre outros, dependendo  muito do caso utilizado.
