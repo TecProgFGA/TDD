@@ -124,3 +124,28 @@ Existem também operações de refatoração que estão indiretamente associadas
 #### Longa Lista de Parâmetros
 * Preservar o objeto inteiro: para substituir um conjunto de dados vindos de um objeto e substituí-los pelo próprio objeto. 
 * Introduzir objeto-parâmetro: para substituir um conjunto de dados que não estão logicamente relacionados por um objeto de dados.
+
+## Elegancia
+
+### Descrição:
+
+A elegância em um projeto de software é uma característica importante que influencia a qualidade do código e a facilidade de manutenção. Ela é alcançada através da simplicidade, da clareza, da coesão e da organização do código.
+
+A elegância em um projeto de software tem efeitos positivos na estrutura do código, tornando-o mais claro e fácil de entender. Isso também ajuda a diminuir o acoplamento entre os componentes do código, o que facilita a manutenção e a evolução do projeto. Além disso, a elegância contribui para a reutilização de código, pois torna mais fácil compreender e utilizar componentes já existentes no projeto.
+
+### Relação com mau cheiro:
+
+Quando se trata de maus-cheiros de código, a elegância é uma característica importante que pode ajudar a corrigir muitos problemas. Alguns exemplos de maus cheiros que podem ser corrigidos através da elegância incluem:
+
+- Duplicação de código: tornando o código mais coeso e organizado.
+- Acoplamento excessivo: através da modularização do código e da separação de responsabilidades entre as classes.
+- Nomes confusos: através da renomeação de variáveis e métodos para tornarem-se mais claros e fáceis de entender.
+
+### Operação de refatoração:
+
+Para melhorar a elegância de um projeto de código, existem algumas operações de refatoração que podem ser úteis, incluindo:
+
+- Extração de método: identificação e extração de trechos de código duplicados para métodos separados.
+- Renomeação de variáveis e métodos: para tornar o código mais claro e fácil de entender.
+- Modularização do código: separação de responsabilidades entre as classes para diminuir o acoplamento e tornar o código mais organizado.
+- Estilo Padronizado: Ao padronizar o estilo de codificação, o código se torna mais claro e compreensível.
