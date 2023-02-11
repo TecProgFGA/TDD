@@ -1,5 +1,6 @@
 package unb.tecprog;
 
+import unb.tecprog.constants.FaixaIRPFEnum;
 import unb.tecprog.exception.ValorBaseInvalidoException;
 
 import java.time.LocalDate;
@@ -90,37 +91,8 @@ public class SimuladorIRPF {
 
     public double calculaIRPF() {
         Double baseCalculo = getBaseCalculo();
-        Double impostoFinal = 0.0;
-
-        Double LIMITE_FAIXA1 = 1903.98;
-        Double LIMITE_FAIXA2 = 922.67;
-        Double LIMITE_FAIXA3 = 924.40;
-        Double LIMITE_FAIXA4 = 913.63;
-        Double LIMITE_FAIXA5 = LIMITE_FAIXA4 + LIMITE_FAIXA3 + LIMITE_FAIXA2 + LIMITE_FAIXA1;
-        Double valorFaixa = 0.0;
-
-        if (baseCalculo > LIMITE_FAIXA5) {
-            valorFaixa = baseCalculo - LIMITE_FAIXA5;
-            impostoFinal += valorFaixa * 0.275;
-        }
-
-        if (baseCalculo > LIMITE_FAIXA3 + LIMITE_FAIXA2 + LIMITE_FAIXA1) {
-            valorFaixa = Math.min(baseCalculo - (LIMITE_FAIXA3 + LIMITE_FAIXA2 + LIMITE_FAIXA1), LIMITE_FAIXA4);
-            impostoFinal += valorFaixa * 0.225;
-        }
-
-        if (baseCalculo > LIMITE_FAIXA2 + LIMITE_FAIXA1) {
-            valorFaixa = Math.min(baseCalculo - (LIMITE_FAIXA2 + LIMITE_FAIXA1), LIMITE_FAIXA3);
-            impostoFinal += valorFaixa * 0.15;
-        }
-
-        if (baseCalculo > LIMITE_FAIXA1) {
-            valorFaixa = Math.min(baseCalculo - LIMITE_FAIXA1, LIMITE_FAIXA2);
-            impostoFinal += valorFaixa * 0.075;
-        }
-
-        return impostoFinal;
+        return Imposto.baseCalculo(baseCalculo);
     }
 
-
 }
+
